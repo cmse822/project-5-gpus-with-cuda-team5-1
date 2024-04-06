@@ -89,21 +89,36 @@ void shared_diffusion(float* u, float *u_new, const unsigned int n){
 
   //Allocate the shared memory
   //FIXME
+  unsigned int idx = blockIdx.x * blockDim.x + threadIdx.x;
+  unsigned int tid = threadIdx.x;
+  extern __shared__ float s_u[];
 
   //Fill shared memory with the data needed from global memory
   //HINT: 
   //What data does each block need from global memory?
   //When do the threads in the block need to sync?
   //FIXME
+  if (idx < n) {
+    s_u[tid] = u[idx];
+  }
 
+  __syncthreads();
   //Do the diffusion
   //FIXME
+  if (tid > 0 && tid < blockDim.x - 1 && idx > 0 && idx < n - 1) {
+    u_new[idx] = 0.5f * (s_u[tid - 1] + s_u[tid + 1]);
+  }
+
 
   //Apply the dirichlet boundary conditions
   //HINT: Think about which threads will have the data for the boundaries
   //FIXME
+   if (idx == 0 || idx == n - 1) {
+        u_new[idx] = u[idx];  // Example of fixed boundary conditions
+    }
   
 }
+
 
 /********************************************************************************
   Dump u to a file
@@ -307,7 +322,7 @@ int main(int argc, char** argv){
   //Allocate a copy for the GPU memory in the host's heap
   float* shared_u  = new float[n];
 
-  /*
+
   //Initialize the cuda memory
   for( i = 0; i < n; i++){
     shared_u[i] = initial_u[i];
@@ -352,7 +367,7 @@ int main(int argc, char** argv){
 	cudaEventElapsedTime(&milliseconds, start, stop);
 
   cout<<"Shared Memory Kernel took: "<<milliseconds/n_steps<<"ms per step"<<endl;
-  */
+
 
 /********************************************************************************
   Test the cuda kernel for diffusion, with excessive memcpys

@@ -4,6 +4,6 @@
     CUDA/9.2.88
 2. nvcc diffusion.cu -o diffusion
 3. ./diffusion blocksize nsteps
-    for example: ./diffusion 256 100
+    for example: ./diffusion 
 4. make sure a folder named "data" exists
 5. python3 plotting.py to plot
