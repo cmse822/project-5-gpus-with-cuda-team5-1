@@ -30,7 +30,7 @@ cudaError_t checkCuda(cudaError_t result)
 #endif
   return result;
 }
-
+ 
 /********************************************************************************
   Do one diffusion step, on the host in host memory
  *******************************************************************************/
