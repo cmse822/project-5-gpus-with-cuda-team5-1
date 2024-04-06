@@ -125,10 +125,18 @@ void outputToFile(string filename, float* u, unsigned int n){
  *******************************************************************************/
 int main(int argc, char** argv){
 
+  if (argc < 3) {
+        std::cerr << "Usage: " << argv[0] << " <blockDimX> <nSteps> \n";
+        return 1;
+    }
+
+    const unsigned int BLOCK_DIM_X = std::atoi(argv[1]);
+    const unsigned int n_steps = std::atoi(argv[2]);
+
   //Number of steps to iterate
   //const unsigned int n_steps = 10;
   //const unsigned int n_steps = 100;
-  const unsigned int n_steps = 1000000;
+  // const unsigned int n_steps = 1000000;
 
   //Whether and how ow often to dump data
   const bool outputData = true;
