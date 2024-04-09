@@ -158,7 +158,9 @@ int main(int argc, char** argv){
   const unsigned int outputPeriod = n_steps/10;
 
   //Size of u
-  const unsigned int n = (1<<11) +2*NG;
+  // const unsigned int n = (1<<11) +2*NG;
+  // adjust per requirement
+  const unsigned int n = (1<<15) +2*NG; 
   //const unsigned int n = (1<<15) +2*NG;
 
   //Block and grid dimensions
@@ -254,6 +256,7 @@ int main(int argc, char** argv){
   Test the cuda kernel for diffusion
  *******************************************************************************/
   //Allocate a copy for the GPU memory in the host's heap
+
   float* cuda_u  = new float[n];
 
   //Initialize the cuda memory
@@ -278,7 +281,7 @@ int main(int argc, char** argv){
   for( i = 0 ; i < n_steps; i++){
     //Call the cuda_diffusion kernel
     //FIXME
-    cuda_diffusion<<<gridDim, blockDim>>>(d_u, d_u2, n, dx, dt);
+    // cuda_diffusion<<<gridDim, blockDim>>>(d_u, d_u2, n, dx, dt);
     checkCuda(cudaPeekAtLastError()); 
     checkCuda(cudaDeviceSynchronize());
 
@@ -319,6 +322,8 @@ int main(int argc, char** argv){
   Test the cuda kernel for diffusion with shared memory
  *******************************************************************************/
 
+// /*
+
   //Allocate a copy for the GPU memory in the host's heap
   float* shared_u  = new float[n];
 
@@ -331,7 +336,6 @@ int main(int argc, char** argv){
 
   //Copy the initial memory onto the GPU
   //FIXME copy shared_u to d_u
-  float *d_u, *d_u2;
   checkCuda(cudaMalloc(&d_u, n * sizeof(float)));
   checkCuda(cudaMalloc(&d_u2, n * sizeof(float)));
 
@@ -384,6 +388,7 @@ int main(int argc, char** argv){
   checkCuda(cudaFree(d_u2));
 
 
+// */
 
 /********************************************************************************
   Test the cuda kernel for diffusion, with excessive memcpys
@@ -430,5 +435,7 @@ int main(int argc, char** argv){
   delete[] cuda_u;
   delete[] shared_u;
 
+  checkCuda(cudaFree(d_u));
+  checkCuda(cudaFree(d_u2));
   //FIXME free d_u and d_2
 }
