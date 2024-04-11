@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 #Plot the difference between the first timesteps for the host kernel and cuda
 #kernel, using n_steps=10
 

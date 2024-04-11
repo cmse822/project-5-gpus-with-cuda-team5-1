@@ -379,7 +379,7 @@ int main(int argc, char** argv){
   Test the cuda kernel for diffusion, with excessive memcpys
  *******************************************************************************/
 
-  /*
+  
   //Initialize the cuda memory
   for( i = 0; i < n; i++){
     shared_u[i] = initial_u[i];
@@ -391,13 +391,17 @@ int main(int argc, char** argv){
 
     //Copy the data from host to device
     //FIXME copy shared_u to d_u
+    checkCuda(cudaMemcpy(d_u, shared_u, n*sizeof(float),
+                             cudaMemcpyHostToDevice));
 
     //Call the shared_diffusion kernel
     //FIXME
+    shared_diffusion<<<gridDim, blockDim>>>(d_u, d_u2, n);
 
     //Copy the data from host to device
     //FIXME copy d_u2 to cuda_u
-
+    checkCuda(cudaMemcpy(shared_u, d_u2, n*sizeof(float),
+                             cudaMemcpyDeviceToHost));
 
   }
 	cudaEventRecord(stop);//End timing
@@ -410,7 +414,7 @@ int main(int argc, char** argv){
 	cudaEventElapsedTime(&milliseconds, start, stop);
 
   cout<<"Excessive cudaMemcpy took: "<<milliseconds/n_steps<<"ms per step"<<endl;
-  */
+  
 
   //Clean up the data
   delete[] initial_u;
