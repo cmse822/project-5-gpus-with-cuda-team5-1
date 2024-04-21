@@ -1,0 +1,106 @@
+Stepsize 100, Blocksize 128:
+Host function took: 366.167 ms per step
+Cuda Kernel took: 355.137 ms per step
+Shared Memory Kernel took: 342.926 ms per step
+Excessive cudaMemcpy took: 0.104957 ms per step
+
+Stepsize 100, Blocksize 256:
+Host function took: 379.122 ms per step
+Cuda Kernel took: 345.412 ms per step
+Shared Memory Kernel took: 329.513 ms per step
+Excessive cudaMemcpy took: 0.100435 ms per step
+
+Stepsize 100, Blocksize 512:
+Host function took: 386.222 ms per step
+Cuda Kernel took: 329.768 ms per step
+Shared Memory Kernel took: 357.71 ms per step
+Excessive cudaMemcpy took: 0.103072 ms per step
+
+Stepsize 100, Blocksize 1024:
+Host function took: 372.625 ms per step
+Cuda Kernel took: 331.729 ms per step
+Shared Memory Kernel took: 336.398 ms per step
+Excessive cudaMemcpy took: 0.101684 ms per step
+
+Stepsize 100, Blocksize 2048:
+Host function took: 486.817 ms per step
+Cuda Kernel took: 392.398 ms per step
+Shared Memory Kernel took: 341.697 ms per step
+Excessive cudaMemcpy took: 0.099377 ms per step
+
+Stepsize 100, Blocksize 4096:
+Host function took: 403.273 ms per step
+Cuda Kernel took: 345.042 ms per step
+Shared Memory Kernel took: 332.527 ms per step
+Excessive cudaMemcpy took: 0.0981338 ms per step
+
+Stepsize 1000, Blocksize 128:
+Host function took: 403.273 ms per step
+Cuda Kernel took: 345.042 ms per step
+Shared Memory Kernel took: 332.527 ms per step
+Excessive cudaMemcpy took: 0.0981338 ms per step
+
+Stepsize 1000, Blocksize 256:
+Host function took: 37.7375 ms per step
+Cuda Kernel took: 31.381 ms per step
+Shared Memory Kernel took: 33.1171 ms per step
+Excessive cudaMemcpy took: 0.101772 ms per step
+
+Stepsize 1000, Blocksize 512:
+Host function took: 35.2809 ms per step
+Cuda Kernel took: 31.5146 ms per step
+Shared Memory Kernel took: 31.204 ms per step
+Excessive cudaMemcpy took: 0.104893 ms per step
+
+Stepsize 1000, Blocksize 1024:
+Host function took: 35.3091 ms per step
+Cuda Kernel took: 31.6675 ms per step
+Shared Memory Kernel took: 31.4623 ms per step
+Excessive cudaMemcpy took: 0.103396 ms per step
+
+Stepsize 1000, Blocksize 2048:
+Cuda Kernel took: 32.1337 ms per step
+Shared Memory Kernel took: 32.3477 ms per step
+Excessive cudaMemcpy took: 0.0983156 ms per step
+Host function took: 34.6555 ms per step
+
+Stepsize 1000, Blocksize 4096:
+Host function took: 42.7975 ms per step
+Cuda Kernel took: 31.7897 ms per step
+Shared Memory Kernel took: 31.2325 ms per step
+Excessive cudaMemcpy took: 0.0979306 ms per step
+
+Stepsize 10000, Blocksize 128:
+Host function took: 3.53127 ms per step
+Cuda Kernel took: 3.18718 ms per step
+Shared Memory Kernel took: 3.43259 ms per step
+Excessive cudaMemcpy took: 0.102181 ms per step
+
+Stepsize 10000, Blocksize 256:
+Host function took: 4.56127 ms per step
+Cuda Kernel took: 4.41772 ms per step
+Shared Memory Kernel took: 4.1398 ms per step
+Excessive cudaMemcpy took: 0.109742 ms per step
+
+Stepsize 10000, Blocksize 512:
+Cuda Kernel took: 3.52864 ms per step
+Shared Memory Kernel took: 3.55375 ms per step
+Excessive cudaMemcpy took: 0.103013 ms per step
+
+Stepsize 10000, Blocksize 1024:
+Host function took: 3.92817 ms per step
+Cuda Kernel took: 3.46863 ms per step
+Shared Memory Kernel took: 3.46115 ms per step
+Excessive cudaMemcpy took: 0.102473 ms per step
+
+Stepsize 10000, Blocksize 2048:
+Host function took: 3.77697 ms per step
+Cuda Kernel took: 3.34053 ms per step
+Shared Memory Kernel took: 3.34839 ms per step
+Excessive cudaMemcpy took: 0.0955149 ms per step
+
+Stepsize 10000, Blocksize 4096:
+Host function took: 4.25324 ms per step
+Cuda Kernel took: 3.44985 ms per step
+Shared Memory Kernel took: 3.49243 ms per step
+Excessive cudaMemcpy took: 0.100321 ms per step
